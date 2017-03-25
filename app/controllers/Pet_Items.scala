@@ -26,7 +26,16 @@ class Pet_Items extends Controller {
 
   //val list = Action { Ok( "List of results to come") }
   //val list = Action { Ok(Json.obj( "result" -> "undefined", "message" -> "list results not implemented yet" ))  }
-  val list = Action { Ok(Json.toJson(petShop.list)) }
+  val list = Action { implicit request =>
+
+    render {
+      case Accepts.Json() => Ok(Json.toJson(petShop.list))
+      case Accepts.Html() => Ok(views.html.list(petShop.list))
+
+      case emptyresult => NotFound
+    }
+
+  }
 
 //  val create = Action { NotImplemented }
 //
