@@ -19,7 +19,15 @@ trait Pet_Franchise {
 
 object Pet_Shop extends Pet_Franchise {
 
+  /**
+    * temp data store
+    */
   private val items = TrieMap.empty[Long, Pet_Item]
+
+  items.put(1, Pet_Item(1, "small rabbit", 12) )
+  items.put(2, Pet_Item(2, "medium rabbit", 17) )
+  items.put(3, Pet_Item(3, "chunky rabbit treats", 2) )
+
   private val seq = new AtomicLong
 
   def list(): Seq[Pet_Item] = items.values.to[Seq]

@@ -15,7 +15,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 # New Routes
 GET /pets controllers.Pet_Items.list
 POST /pets controllers.Pet_Items.create
-#GET /pets/:id controllers.Pet_Items.details(id: Long)
+GET /pets/:id controllers.Pet_Items.details(id: Long)
 #PUT /pets/:id controllers.Pet_Items.update(id: Long)
 #DELETE /pets/:id controllers.Pet_Items.delete(id: Long)
 

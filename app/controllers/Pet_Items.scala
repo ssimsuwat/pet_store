@@ -49,5 +49,14 @@ class Pet_Items extends Controller {
     }
   }
 
+  def details(id: Long) = Action  {  implicit request =>
+
+    render {
+      case Accepts.Html() => Ok(views.html.details(petShop.details(id).get))
+      case emptyresult => NotFound
+    }
+
+  }
+
 }
 
